@@ -10,9 +10,11 @@ const createToken = (user) => {
         email: user.email,
     };
 
-    const token = jwt.sign(payload, process.env.JWT_SECRET);
+    const token = jwt.sign(payload, process.env.JWT_SECRET, {
+        expiresIn: "1h",
+    });
 
-    return token
+    return token;
 };
 
 authController.post("/register", async (req, res) => {
@@ -40,6 +42,32 @@ authController.post("/register", async (req, res) => {
         const { password, ...others } = user._doc;
         const token = createToken(others);
         return res.status(201).json({ others, token });
+    } catch (error) {
+        return res.status(500).json(error.message);
+    }
+});
+
+authController.post("/login", async (req, res) => {
+    const { email, password: userPass } = req.body;
+    try {
+        if (email === "" || userPass === "") {
+            return res.status(500).json({ msg: "all fields are required" });
+        }
+
+        const user = await User.findOne({ email });
+        if (!user) {
+            return res.status(500).json({ msg: "invalid email or password" });
+        }
+
+        const comparePassword = await bcrypt.compare(userPass, user.password);
+        if (!comparePassword) {
+            return res.status(500).json({ msg: "invalid email or password" });
+        }
+
+        const { password, ...others } = user._doc;
+        const token = createToken(user);
+
+        return res.status(200).json({ others, token });
     } catch (error) {
         return res.status(500).json(error.message);
     }
