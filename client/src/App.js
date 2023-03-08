@@ -10,7 +10,7 @@ import Products from './pages/Products/Products';
 
 function App() {
   return (
-    <div>
+    <div className='app-container'>
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
