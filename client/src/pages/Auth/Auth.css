@@ -1,0 +1,106 @@
+.login-container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--text-title-color);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+}
+
+.login-container .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    border: 1px solid var(--primary-color);
+    height: 400px;
+    width: 325px;
+    background-color: var(--primary-color);
+    border-radius: 20px;
+}
+
+.login-container .wrapper .title {
+    margin-bottom: 20px;
+    color: var(--text-title-color);
+    font-weight: bold;
+    background-color: var(--primary-color);
+}
+
+.login-container .wrapper form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background-color: var(--primary-color);
+}
+
+.login-container .wrapper form input {
+    padding: 0.75rem 1.25rem;
+    border: 2px solid rgb(127, 127, 127);
+    border-radius: 12px;
+    background-color: var(--primary-color);
+}
+
+.login-container .wrapper form input:focus {
+    outline: none;
+    border: 2px solid var(--text-color);
+}
+
+.login-container .wrapper .submit-btn {
+    outline: none;
+    border: 1px solid transparent;
+    padding: 0.75rem 2rem;
+    border-radius: 20px;
+    background-color: var(--btn-color);
+    color: var(--primary-color);
+    cursor: pointer;
+    margin: 6px 0 3px 0;
+    transition: 150ms all;
+}
+
+.login-container .wrapper .submit-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--btn-color);
+    border: 1px solid var(--btn-color);
+}
+
+.login-container .wrapper a {
+    text-decoration: none;
+    color: var(--text-color);
+    margin-top: 15px;
+    background-color: var(--primary-color);
+}
+
+.login-container .wrapper a p {
+    width: 100px;
+    border-bottom: 1px solid var(--black-light);
+    padding-bottom: 0.2rem;
+    margin: 0 auto;
+    margin-top: 10px;
+    text-align: center;
+    background-color: var(--primary-color);
+}
+
+.login-container .wrapper a p:hover {
+    color: var(--btn-color);
+}
+
+.error-msg {
+    height: 70px;
+    width: 250px;
+    text-align: center;
+    border-radius: 20px;
+    line-height: 1.5rem;
+    padding: 0.75rem 1.5rem;
+    background-color: brown;
+    color: var(--primary-color);
+    position: absolute;
+    top: 5rem;
+    right: 5rem;
+}
