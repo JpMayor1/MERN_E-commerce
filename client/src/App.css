@@ -2,12 +2,15 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-    background: rgb(207, 207, 207);
+    font-family: "Montserrat", sans-serif;
     user-select: none;
     color: var(--text-color);
 }
 
 :root {
-    --text-color: #2c3333;
+    --primary-color: #F3EFE0;
+    --black-light: #434242;
+    --text-color: #222222;
+    --btn-color: #22A39F;
+    --text-title-color: #22A39F;
 }

@@ -16,7 +16,7 @@ function Navbar() {
                         <Link to="/products">Products</Link>
                     </div>
                     <div className="navbar-cart">
-                        <AiOutlineShoppingCart className="icon" />
+                        <AiOutlineShoppingCart/>
                         <span className="cart-number">0</span>
                     </div>
                     <div className="navbar-link">

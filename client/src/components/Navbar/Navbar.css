@@ -2,9 +2,9 @@
     width: 100%;
     height: 100%;
     padding: 0.5rem 5rem;
-    border-bottom: 1px solid rgb(158, 138, 138);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    background: #dbe2ef;
 }
-
 .navbar-wrapper {
     display: flex;
     justify-content: space-between;
@@ -38,16 +38,27 @@
     text-decoration: none;
     position: relative;
     transition: 150ms all;
+    font-size: 16px;
 }
 
-.navbar-cart .icon {
+.navbar-cart {
     cursor: pointer;
+    position: relative;
+    margin-right: 20px;
 }
 
-.navbar-cart span {
+.navbar-cart:hover svg {
+    fill: var(--btn-color);
+}
+
+.navbar-cart .cart-number {
     cursor: default;
+    position: absolute;
+    top: -15px;
+    right: 2px;
+    font-size: 16px;
 }
 
-.navbar-products > a:hover {
-    color: #777;
+a:hover {
+    color: var(--btn-color);
 }
