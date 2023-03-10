@@ -18,7 +18,7 @@
     justify-content: center;
     padding: 2rem;
     border: 1px solid var(--primary-color);
-    height: 400px;
+    height: fit-content;
     width: 325px;
     background-color: var(--primary-color);
     border-radius: 20px;
@@ -103,4 +103,10 @@
     position: absolute;
     top: 5rem;
     right: 5rem;
+    z-index: 99999;
+}
+
+.error-msg p {
+    color: aliceblue;
+    font-size: 16px;
 }
