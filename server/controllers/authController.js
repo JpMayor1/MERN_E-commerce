@@ -102,7 +102,8 @@ authController.post("/admin/register", async (req, res) => {
         const token = createToken(others);
         return res.status(201).json({ others, token });
     } catch (error) {
-        return res.status(500).json(error.message);
+        console.error(error);
+        return res.status(500).json({ message: "Internal Server Error" });
     }
 });
 
