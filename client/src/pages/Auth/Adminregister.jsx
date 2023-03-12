@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Auth.css";
+import { useDispatch } from "react-redux";
+import { register } from "../../redux/authSlice";
 
 function Adminregister() {
     const [username, setUsername] = useState("");
@@ -10,6 +12,7 @@ function Adminregister() {
     const [adminSecretKey, setAdminSecretKey] = useState("");
     const [error, setError] = useState(false);
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const handleRegister = async (e) => {
         e.preventDefault();
@@ -39,7 +42,7 @@ function Adminregister() {
                 throw new Error("Invalid inputs! try again.");
             }
             const data = await res.json();
-            console.log(data);
+            dispatch(register(data));
             navigate("/admin/login");
         } catch (error) {
             setError(error.message);
@@ -105,6 +108,9 @@ function Adminregister() {
                     <button className="submit-btn">Register</button>
                     <Link to="/admin/login">
                         Already have an account? <p>Login now !</p>
+                    </Link>
+                    <Link to="/register">
+                        Register as User<p>Here!</p>
                     </Link>
                 </form>
                 {error && (

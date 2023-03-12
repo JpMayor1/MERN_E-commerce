@@ -41,7 +41,7 @@ function Register() {
     return (
         <div className="login-container">
             <div className="wrapper">
-                <h2 className="title">Register</h2>
+                <h2 className="title">Register as User</h2>
                 <form onSubmit={handleRegister}>
                     <label htmlFor="username">
                         <input
@@ -85,6 +85,9 @@ function Register() {
                     <button className="submit-btn">Register</button>
                     <Link to="/login">
                         Already have an account? <p>Login now !</p>
+                    </Link>
+                    <Link to="/admin/register">
+                        Register as Admin<p>Here!</p>
                     </Link>
                 </form>
                 {error && (
