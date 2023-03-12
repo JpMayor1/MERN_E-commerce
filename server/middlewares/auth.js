@@ -10,8 +10,8 @@ const verifyToken = async (req, res, next) => {
             if (err)
                 return res.status(403).json({ msg: "Wrong or Expired Token." });
             else {
-                req.user = data;
                 req.admin = data;
+                req.user = data;
                 next();
             }
         });

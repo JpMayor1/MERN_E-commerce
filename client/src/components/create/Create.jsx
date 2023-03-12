@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
 import "./Create.css";
 
 function Create() {
     const [title, setTitle] = useState("");
     const [img, setImg] = useState("");
     const [price, setPrice] = useState(0);
-    const { token } = useSelector((state) => state.auth);
 
     const onChangeFile = (e) => {
         setImg(e.target.files[0]);
@@ -28,13 +26,16 @@ function Create() {
                     method: "POST",
                     body: formData,
                 });
+
+                // Display pop-up message and refresh the page
+                alert("Image Created");
+                window.location.reload();
             }
 
-            // upload product and navigate to product
+            // upload product
             await fetch("http://localhost:5000/product", {
                 headers: {
                     "Content-Type": "application/json",
-                    Authorization: `Bearer ${token}`,
                 },
                 method: "POST",
                 body: JSON.stringify({
