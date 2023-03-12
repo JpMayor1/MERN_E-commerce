@@ -5,6 +5,19 @@ const jwt = require("jsonwebtoken");
 
 const authController = require("express").Router();
 
+const createAdminToken = (admin) => {
+    const payload = {
+        id: admin._id.toString(),
+        email: admin.email,
+    };
+
+    const token = jwt.sign(payload, process.env.JWT_SECRET, {
+        expiresIn: "1h",
+    });
+
+    return token;
+};
+
 const createToken = (user) => {
     const payload = {
         id: user._id.toString(),
@@ -17,6 +30,7 @@ const createToken = (user) => {
 
     return token;
 };
+
 
 ////////////////////////////////USER AUTH
 authController.post("/register", async (req, res) => {
@@ -99,7 +113,7 @@ authController.post("/admin/register", async (req, res) => {
         await admin.save();
 
         const { password, ...others } = admin._doc;
-        const token = createToken(others);
+        const token = createAdminToken(others);
         return res.status(201).json({ others, token });
     } catch (error) {
         console.error(error);
@@ -125,7 +139,7 @@ authController.post("/admin/login", async (req, res) => {
         }
 
         const { password, ...others } = admin._doc;
-        const token = createToken(admin);
+        const token = createAdminToken(admin);
 
         return res.status(200).json({ others, token });
     } catch (error) {

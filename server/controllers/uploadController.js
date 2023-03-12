@@ -13,12 +13,13 @@ const storage = multer.diskStorage({
 
 const upload = multer({
     storage: storage,
+    limits: { fileSize: 100000000 }, // 100MB
 });
 
 uploadController.post(
     "/img",
     verifyToken,
-    upload.single("image"),
+    upload.single("img"),
     async (req, res) => {
         try {
             return res.status(200).json({ msg: "Successfully uploaded" });
