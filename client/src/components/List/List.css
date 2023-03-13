@@ -1,14 +1,12 @@
 .container {
-    width: 100%;
-    height: 100%;
+    margin: 50px;
 }
 
 .wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
-    height: 100%;
+    justify-content: center;
 }
 
 .title {
@@ -18,14 +16,19 @@
     text-align: center;
 }
 
+.product-container-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 30px;
+    margin-top: 50px;
+}
+
 .noproductmsg {
     margin-top: 40px;
     font-size: 24px;
     text-align: center;
     color: #666;
-}
-
-/* Add some space between each product card */
-.container .product-container {
-    margin-bottom: 20px;
 }

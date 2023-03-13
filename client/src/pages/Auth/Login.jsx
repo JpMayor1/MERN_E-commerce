@@ -35,6 +35,7 @@ function Login() {
 
     return (
         <div className="login-container">
+            <Link to="/" className="back-to-home">🡠 HOME</Link>
             <div className="wrapper">
                 <h2 className="title">Login as User</h2>
                 <form onSubmit={handleLogin}>

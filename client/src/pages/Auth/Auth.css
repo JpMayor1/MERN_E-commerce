@@ -11,12 +11,28 @@
     z-index: 9999;
 }
 
+.back-to-home {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    text-decoration: none;
+    padding: 10px 20px;
+    background: var(--text-color);
+    color: var(--primary-color);
+    border-radius: 5px;
+    transition: 150ms all;
+}
+
+.back-to-home:active {
+    transform: scale(0.9);
+}
+
 .login-container .wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 2rem;
+    padding: 1rem;
     border: 1px solid var(--primary-color);
     height: fit-content;
     width: 325px;
@@ -25,9 +41,10 @@
 }
 
 .login-container .wrapper .title {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     color: var(--text-title-color);
     font-weight: bold;
+    font-size: 20px;
     background-color: var(--primary-color);
 }
 

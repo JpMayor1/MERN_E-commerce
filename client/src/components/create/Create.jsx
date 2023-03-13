@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import List from "../List/List";
 import "./Create.css";
+import { BsUpload } from "react-icons/bs";
 
 function Create() {
     const [title, setTitle] = useState("");
@@ -32,7 +33,7 @@ function Create() {
                 });
 
                 // Display pop-up message and refresh the page
-                alert("Image Created");
+                alert("Product Created");
                 window.location.reload();
             }
 
@@ -65,27 +66,36 @@ function Create() {
                 console.log(error);
             }
         };
-        fetchProduct()
+        fetchProduct();
     }, []);
+
+    const handleCloseImg = () => {
+        setImg((prev) => null);
+    };
 
     return (
         <div className="create-container">
             <div className="create-wrapper">
-                <h2 className="title">Create Product</h2>
+                <h2 className="title">
+                    {" "}
+                    <i>Create Product</i>{" "}
+                </h2>
                 <form
                     onSubmit={handleCreateProduct}
                     encType="multipart/form-data"
                 >
                     <div className="input-wrapper">
-                        <label>Title: </label>
+                        <label>Name: </label>
                         <input
                             type="text"
                             name="title"
                             className="input"
-                            placeholder="Title"
                             onChange={(e) => setTitle(e.target.value)}
                         />
-                        <label htmlFor="img">Image: </label>
+                        <label htmlFor="img" className="file-label">
+                            {" "}
+                            <BsUpload className="icon" /> Upload Image{" "}
+                        </label>
                         <input
                             type="file"
                             name="img"
@@ -94,6 +104,13 @@ function Create() {
                             placeholder="Image"
                             onChange={onChangeFile}
                         />
+                        {img && (
+                            <p className="image-name">
+                                {img.name}{" "}
+                               <span onClick={() => handleCloseImg()}
+                                    className="closeIcon">x</span>
+                            </p>
+                        )}
                         <label>Price: </label>
                         <input
                             type="price"

@@ -55,6 +55,7 @@ function Adminregister() {
 
     return (
         <div className="login-container">
+                <Link to="/" className="back-to-home">🡠 HOME</Link>
             <div className="wrapper">
                 <h2 className="title">Register as Admin</h2>
                 <form onSubmit={handleRegister}>
@@ -66,6 +67,7 @@ function Adminregister() {
                             onChange={(e) =>
                                 setUsername((prev) => e.target.value)
                             }
+                            autoComplete="off"
                         />
                     </label>
                     <label htmlFor="email">
@@ -73,7 +75,7 @@ function Adminregister() {
                             type="email"
                             id="email"
                             placeholder="Enter email"
-                            autoComplete="none"
+                            autoComplete="off"
                             onChange={(e) => setEmail((prev) => e.target.value)}
                         />
                     </label>
@@ -99,7 +101,7 @@ function Adminregister() {
                     </label>
                     <label htmlFor="adminSecretKey">
                         <input
-                            type="text"
+                            type="password"
                             id="adminSecretKey"
                             placeholder="Enter secret key"
                             onChange={(e) => setAdminSecretKey(e.target.value)}

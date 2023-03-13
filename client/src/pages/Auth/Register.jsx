@@ -40,6 +40,7 @@ function Register() {
 
     return (
         <div className="login-container">
+            <Link to="/" className="back-to-home">🡠 HOME</Link>
             <div className="wrapper">
                 <h2 className="title">Register as User</h2>
                 <form onSubmit={handleRegister}>
@@ -48,6 +49,7 @@ function Register() {
                             type="text"
                             id="username"
                             placeholder="Enter username"
+                            autoComplete="off"
                             onChange={(e) =>
                                 setUsername((prev) => e.target.value)
                             }

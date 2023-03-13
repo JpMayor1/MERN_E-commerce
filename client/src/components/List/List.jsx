@@ -10,7 +10,7 @@ function List({ products }) {
                     <h1 className="title">All products</h1>
                 )}
 
-                <div className="list-container">
+                <div className="product-container-list">
                     {products?.length === 0 ? (
                         <h1 className="noproductmsg">No products Yet!</h1>
                     ) : (

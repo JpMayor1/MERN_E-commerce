@@ -17,10 +17,11 @@
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
 }
 
-.title {
-    text-align: center;
+.create-wrapper h2 i {
+    color: var(--btn-color);
     font-size: 24px;
-    margin-bottom: 20px;
+    font-family: "Arial Narrow Bold", sans-serif;
+    margin-bottom: 10px;
 }
 
 .input-wrapper {
@@ -31,7 +32,8 @@
 
 .input-wrapper label {
     font-size: 16px;
-    margin-bottom: 5px;
+    margin: 10px 0;
+    font-family: "Arial Narrow Bold", sans-serif;
 }
 
 .input {
@@ -40,6 +42,70 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     margin-bottom: 10px;
+}
+
+.input[type="file"] {
+    display: none;
+}
+
+.file-label {
+    text-transform: uppercase;
+    color: #ffffff;
+    background: var(--btn-color);
+    border: 1px solid var(--btn-color);
+    text-align: center;
+    padding: 10px 0;
+    font-size: 16px;
+    letter-spacing: 1.5px;
+    user-select: none;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: 150ms all;
+}
+
+.file-label:active {
+    transform: scale(0.9);
+}
+
+.file-label:hover {
+    color: var(--btn-color);
+    background: #fff;
+    border: 1px solid var(--btn-color);
+}
+
+.file-label .icon {
+    fill: #fff;
+    font-size: 20px;
+    margin-right: 10px;
+    transition: 150ms all;
+}
+
+.file-label:hover .icon {
+    fill: var(--btn-color);
+}
+
+.image-name {
+    text-align: center;
+    padding: 1em 0;
+    background-color: #007bff;
+    color: #fff;
+}
+
+.closeIcon {
+    border-radius: 50%;
+    background: red;
+    color: #fff;
+    padding: 3px 5px;
+    margin-left: 5px;
+    cursor: pointer;
+    transition: 150ms all;
+    border: 1px solid red;
+}
+
+.closeIcon:hover {
+    color: red;
+    background: #007bff;
+    border: 1px solid red;
 }
 
 .btn-wrapper {
@@ -63,11 +129,5 @@
 }
 
 .show-products {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 30px;
-    padding: 20px;
     width: 100%;
 }
