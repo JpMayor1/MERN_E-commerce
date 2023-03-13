@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import List from "../List/List";
 import "./Create.css";
 import { BsUpload } from "react-icons/bs";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Create() {
     const [title, setTitle] = useState("");
@@ -33,8 +35,33 @@ function Create() {
                 });
 
                 // Display pop-up message and refresh the page
-                alert("Product Created");
-                window.location.reload();
+                toast.success("Product Created", {
+                    position: "top-center",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                    onClose: () => {
+                        window.location.reload();
+                    },
+                });
+            } else {
+                toast.error("Product Not Created", {
+                    position: "top-center",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                    onClose: () => {
+                        window.location.reload();
+                    },
+                });
             }
 
             // upload product
@@ -107,8 +134,12 @@ function Create() {
                         {img && (
                             <p className="image-name">
                                 {img.name}{" "}
-                               <span onClick={() => handleCloseImg()}
-                                    className="closeIcon">x</span>
+                                <span
+                                    onClick={() => handleCloseImg()}
+                                    className="closeIcon"
+                                >
+                                    x
+                                </span>
                             </p>
                         )}
                         <label>Price: </label>
@@ -129,6 +160,7 @@ function Create() {
                 {!error && <List products={products ? products : []} />}
                 {error && <h1>No products or server is not responding</h1>}
             </div>
+            <ToastContainer />
         </div>
     );
 }
