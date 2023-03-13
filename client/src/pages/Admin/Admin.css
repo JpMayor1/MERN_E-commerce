@@ -114,3 +114,9 @@ hr {
     color: var(--btn-color);
     border: 1px solid var(--btn-color);
 }
+
+.admin-content {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}

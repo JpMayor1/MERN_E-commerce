@@ -1,15 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import List from "../List/List";
 import "./Create.css";
 
 function Create() {
     const [title, setTitle] = useState("");
     const [img, setImg] = useState("");
     const [price, setPrice] = useState(0);
+    const [products, setProducts] = useState([]);
+    const [error, setError] = useState(false);
 
     const onChangeFile = (e) => {
         setImg(e.target.files[0]);
     };
 
+    //CREATING PRODUCT
     const handleCreateProduct = async (e) => {
         e.preventDefault();
         try {
@@ -48,6 +52,21 @@ function Create() {
             console.error(error);
         }
     };
+
+    //GETTING THE PRODUCT
+    useEffect(() => {
+        const fetchProduct = async () => {
+            try {
+                const res = await fetch("http://localhost:5000/product");
+                const data = await res.json();
+                setProducts(data);
+            } catch (error) {
+                setError((prev) => error.message);
+                console.log(error);
+            }
+        };
+        fetchProduct()
+    }, []);
 
     return (
         <div className="create-container">
@@ -88,6 +107,10 @@ function Create() {
                         <button className="btn">Create Product</button>
                     </div>
                 </form>
+            </div>
+            <div className="show-products">
+                {!error && <List products={products ? products : []} />}
+                {error && <h1>No products or server is not responding</h1>}
             </div>
         </div>
     );
