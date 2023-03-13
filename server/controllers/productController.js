@@ -1,4 +1,3 @@
-// const verifyToken = require("../middlewares/auth");
 const Product = require("../models/Product");
 const productController = require("express").Router();
 
