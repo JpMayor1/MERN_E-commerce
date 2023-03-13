@@ -9,6 +9,7 @@ import Register from './pages/Auth/Register';
 import Products from './pages/Products/Products';
 import Adminregister from './pages/Auth/Adminregister';
 import Adminlogin from './pages/Auth/Adminlogin';
+import ProductDetail from './components/ProductDetail/ProductDetail';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path='/products' element={<Products />} />
         <Route path='/admin/register' element={<Adminregister />} />
         <Route path='/admin/login' element={<Adminlogin />} />
+        <Route path='/productDetail/:id' element={<ProductDetail />} />
       </Routes>
       <Footer />
     </div>
