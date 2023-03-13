@@ -1,5 +1,6 @@
 const uploadController = require("express").Router();
 const multer = require("multer");
+const verifyToken = require("../middlewares/auth");
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -15,12 +16,17 @@ const upload = multer({
     limits: { fileSize: 100000000 }, // 100MB
 });
 
-uploadController.post("/img", upload.single("img"), async (req, res) => {
-    try {
-        return res.status(200).json({ msg: "Successfully uploaded" });
-    } catch (error) {
-        return res.status(500).json(error.message);
+uploadController.post(
+    "/img",
+    verifyToken,
+    upload.single("img"),
+    async (req, res) => {
+        try {
+            return res.status(200).json({ msg: "Successfully uploaded" });
+        } catch (error) {
+            return res.status(500).json(error.message);
+        }
     }
-});
+);
 
 module.exports = uploadController;

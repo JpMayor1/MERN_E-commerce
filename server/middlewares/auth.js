@@ -12,6 +12,7 @@ const verifyToken = async (req, res, next) => {
             else {
                 req.admin = data;
                 req.user = data;
+                localStorage.setItem("token", token); // store the token in localStorage
                 next();
             }
         });

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { login } from "../../redux/authSlice";
 import "./Auth.css";
 
 function Login() {
@@ -7,6 +9,7 @@ function Login() {
     const [password, setPassword] = useState("");
     const [error, setError] = useState(false);
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -22,7 +25,7 @@ function Login() {
             if (!res.ok) {
                 throw new Error(data.message);
             }
-            console.log(data);
+            dispatch(login(data));
             navigate("/products");
         } catch (error) {
             setError(true);

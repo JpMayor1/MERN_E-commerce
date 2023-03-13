@@ -7,7 +7,7 @@ function UserList({ products }) {
         <div className="container">
             <div className="wrapper">
                 {products?.length > 0 && (
-                    <h1 className="title">All products</h1>
+                    <h1 className="titlee">All products</h1>
                 )}
 
                 <div className="product-container-list-items-awan">

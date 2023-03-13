@@ -3,11 +3,12 @@ import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { login } from "../../redux/authSlice";
 import "./Auth.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Adminlogin() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [error, setError] = useState(false);
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
@@ -28,16 +29,24 @@ function Adminlogin() {
             dispatch(login(data));
             navigate("/admin");
         } catch (error) {
-            setError(true);
-            setTimeout(() => {
-                setError(false);
-            }, 2500);
-            console.error(error);
+            toast.error("Invalid inputs", {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            });
         }
     };
+
     return (
         <div className="login-container">
-            <Link to="/" className="back-to-home">🡠 HOME</Link>
+            <Link to="/" className="back-to-home">
+                🡠 HOME
+            </Link>
             <div className="wrapper">
                 <h2 className="title">Login as Admin</h2>
                 <form onSubmit={handleLogin}>
@@ -66,12 +75,8 @@ function Adminlogin() {
                         Login as User<p>Here!</p>
                     </Link>
                 </form>
-                {error && (
-                    <div className="error-msg">
-                        <p>Invalid inputs! try again.</p>
-                    </div>
-                )}
             </div>
+            <ToastContainer />
         </div>
     );
 }

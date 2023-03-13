@@ -1,10 +1,21 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import Logo from "../../assets/logo.jpg";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../../redux/authSlice";
 
 function Navbar() {
+    const user = useSelector((state) => state.auth.user);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        dispatch(logout());
+        navigate("/");
+    };
+
     return (
         <div className="navbar-container">
             <div className="navbar-wrapper">
@@ -16,14 +27,20 @@ function Navbar() {
                         <Link to="/products">Products</Link>
                     </div>
                     <div className="navbar-cart">
-                        <AiOutlineShoppingCart/>
+                        <AiOutlineShoppingCart />
                         <span className="cart-number">0</span>
                     </div>
-                    <div className="navbar-link">
-                        <Link to="/register">Register</Link>
-                        <p>/</p>
-                        <Link to="/login">Login</Link>
-                    </div>
+                    {user ? (
+                        <div className="navbar-link" onClick={handleLogout}>
+                            Logout
+                        </div>
+                    ) : (
+                        <div className="navbar-link">
+                            <Link to="/register">Register</Link>
+                            <p>/</p>
+                            <Link to="/login">Login</Link>
+                        </div>
+                    )}
                 </div>
             </div>
         </div>

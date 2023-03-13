@@ -5,6 +5,11 @@ import "./Products.css";
 function Products() {
     const [products, setProducts] = useState([]);
     const [error, setError] = useState(false);
+    const [token, setToken] = useState(null);
+
+    useEffect(() => {
+        setToken(localStorage.getItem("token"));
+    }, []);
 
     //GETTING THE PRODUCT
     useEffect(() => {
@@ -20,12 +25,21 @@ function Products() {
         };
         fetchProduct();
     }, []);
-    return (
-        <div className="show-user-products">
-            {!error && <UserList products={products ? products : []} />}
-            {error && <h1>No products or server is not responding</h1>}
-        </div>
-    );
+
+    if (!token) {
+        return (
+            <div className="not-authorized">
+                <h1>Not Authorized, Please Login</h1>
+            </div>
+        );
+    } else {
+        return (
+            <div className="show-user-products">
+                {!error && <UserList products={products ? products : []} />}
+                {error && <h1>No products or server is not responding</h1>}
+            </div>
+        );
+    }
 }
 
 export default Products;

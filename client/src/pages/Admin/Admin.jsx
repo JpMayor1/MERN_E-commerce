@@ -1,14 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Admin.css";
 import Logo from "../../assets/logo.jpg";
 import Create from "../../components/create/Create";
 import Users from "../../components/Users/Users";
 import Orders from "../../components/Orders/Orders";
+import { useDispatch } from "react-redux";
+import { logout } from "../../redux/authSlice";
 
 function Admin() {
     const [create, setCreate] = useState(true);
     const [users, setUsers] = useState(false);
     const [orders, setOrders] = useState(false);
+    const [token, setToken] = useState(null);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        setToken(localStorage.getItem("token"));
+    }, []);
 
     const handleCreateModal = () => {
         setCreate(true);
@@ -27,6 +37,22 @@ function Admin() {
         setUsers(false);
         setCreate(false);
     };
+
+    const handleLogout = () => {
+        dispatch(logout());
+        navigate("/");
+    };
+
+    if (!token) {
+        return (
+            <div
+                className="not-authorized"
+                style={{ height: "100vh", width: "100vw" }}
+            >
+                <h1>Not Authorized, Please Login</h1>
+            </div>
+        );
+    }
     return (
         <div className="admin-container">
             <div className="left-navbar">
@@ -60,7 +86,9 @@ function Admin() {
                         </div>
                     </div>
                     <div className="logout">
-                        <button className="btn">Logout</button>
+                        <button className="btn" onClick={handleLogout}>
+                            Logout
+                        </button>
                     </div>
                 </div>
             </div>

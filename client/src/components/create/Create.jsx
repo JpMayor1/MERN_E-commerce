@@ -4,6 +4,7 @@ import "./Create.css";
 import { BsUpload } from "react-icons/bs";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useSelector } from "react-redux";
 
 function Create() {
     const [title, setTitle] = useState("");
@@ -11,6 +12,7 @@ function Create() {
     const [price, setPrice] = useState(0);
     const [products, setProducts] = useState([]);
     const [error, setError] = useState(false);
+    const { token } = useSelector((state) => state.auth);
 
     const onChangeFile = (e) => {
         setImg(e.target.files[0]);
@@ -30,6 +32,9 @@ function Create() {
                 formData.append("img", img);
 
                 await fetch(`http://localhost:5000/upload/img`, {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
                     method: "POST",
                     body: formData,
                 });
@@ -62,12 +67,14 @@ function Create() {
                         window.location.reload();
                     },
                 });
+                return;
             }
 
             // upload product
             await fetch("http://localhost:5000/product", {
                 headers: {
                     "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`,
                 },
                 method: "POST",
                 body: JSON.stringify({
@@ -76,7 +83,21 @@ function Create() {
                     price,
                 }),
             });
+            return;
         } catch (error) {
+            toast.error("Product Not Created", {
+                position: "top-center",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                onClose: () => {
+                    window.location.reload();
+                },
+            });
             console.error(error);
         }
     };

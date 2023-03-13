@@ -1,3 +1,4 @@
+const verifyToken = require("../middlewares/auth");
 const Product = require("../models/Product");
 const productController = require("express").Router();
 
@@ -32,7 +33,7 @@ productController.get("/:id", async (req, res) => {
 });
 
 //create a product
-productController.post("/", async (req, res) => {
+productController.post("/", verifyToken, async (req, res) => {
     try {
         const product = await Product.create({ ...req.body });
         await product.save();

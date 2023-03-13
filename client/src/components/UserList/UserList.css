@@ -9,11 +9,13 @@
     justify-content: center;
 }
 
-.title {
+.titlee {
     margin-top: 40px;
     font-size: 36px;
     font-weight: bold;
     text-align: center;
+    color: var(--text-color);
+    font-family: 'Arial Narrow Bold', sans-serif;
 }
 
 .product-container-list-items-awan {

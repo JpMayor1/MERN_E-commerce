@@ -15,18 +15,21 @@ export const authSlice = createSlice({
             state.user = action.payload.others;
             state.admin = action.payload.others;
             state.token = action.payload.token;
+            localStorage.setItem('token', action.payload.token); // set the token in localStorage
         },
         register(state, action) {
             localStorage.clear();
             state.user = action.payload.others;
             state.admin = action.payload.others;
             state.token = action.payload.token;
+            localStorage.setItem('token', action.payload.token); // set the token in localStorage
         },
         logout(state, action) {
             state.user = null;
             state.admin = null;
             state.token = null;
             localStorage.clear();
+            localStorage.removeItem('token'); // remove the token from localStorage
         },
     },
 });

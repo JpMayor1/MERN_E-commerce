@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Auth.css";
+import { useDispatch } from "react-redux";
+import { register } from "../../redux/authSlice";
 
 function Register() {
     const [username, setUsername] = useState("");
@@ -9,6 +11,8 @@ function Register() {
     const [confirmPass, setConfirmPass] = useState("");
     const [error, setError] = useState(false);
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+    
 
     const handleRegister = async (e) => {
         e.preventDefault();
@@ -27,7 +31,7 @@ function Register() {
                 throw new Error("Invalid inputs! try again.");
             }
             const data = await res.json();
-            console.log(data);
+            dispatch(register(data));
             navigate("/login");
         } catch (error) {
             setError(error.message);
