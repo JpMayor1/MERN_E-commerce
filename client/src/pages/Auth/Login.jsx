@@ -96,12 +96,14 @@ function Login() {
                         />
                     </label>
                     <button className="submit-btn">Login</button>
+                    <div className="other-links">
                     <Link to="/register">
                         Don't have an account? <p>Register now !</p>
                     </Link>
                     <Link to="/admin/login">
                         Login as Admin<p>Here!</p>
                     </Link>
+                    </div>
                 </form>
                 <ToastContainer />
             </div>

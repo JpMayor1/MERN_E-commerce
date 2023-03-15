@@ -4,8 +4,8 @@ import './UserList.css'
 
 function UserList({ products }) {
     return (
-        <div className="container">
-            <div className="wrapper">
+        <div className="user-container">
+            <div className="user-wrapper">
                 {products?.length > 0 && (
                     <h1 className="titlee">All products</h1>
                 )}

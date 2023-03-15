@@ -7,7 +7,7 @@ function List({ products }) {
         <div className="container">
             <div className="wrapper">
                 {products?.length > 0 && (
-                    <h1 className="title">All products</h1>
+                    <h1 className="titleee">All products</h1>
                 )}
 
                 <div className="product-container-list">

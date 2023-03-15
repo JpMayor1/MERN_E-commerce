@@ -81,7 +81,7 @@ function Admin() {
                             <p>Orders</p>
                         </div>
                     </div>
-                    <div className="logout">
+                    <div className="admin-logout">
                         <button className="btn" onClick={handleLogout}>
                             Logout
                         </button>

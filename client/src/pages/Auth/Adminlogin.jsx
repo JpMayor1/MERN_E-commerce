@@ -84,12 +84,14 @@ function Adminlogin() {
                         />
                     </label>
                     <button className="submit-btn">Login</button>
+                    <div className="other-links">
                     <Link to="/admin/register">
                         Don't have an account? <p>Register now !</p>
                     </Link>
                     <Link to="/login">
                         Login as User<p>Here!</p>
                     </Link>
+                    </div>
                 </form>
             </div>
             <ToastContainer />

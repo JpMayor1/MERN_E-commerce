@@ -15,8 +15,6 @@ function Footer() {
             </div>
             <div className="link">
                 <h1>D&J Diner</h1>
-                <p className='line'></p>
-                <p className='line'></p>
                 <div className="links-icons">
                     <Link className='icon' to="https://www.facebook.com/profile.php?id=100085932051209" target="blank"><FaFacebookF /></Link>
                     <Link className='icon' to="#"><FaTiktok /></Link>
@@ -25,7 +23,6 @@ function Footer() {
             </div>
             <div className="work-hours">
                 <h1>Working Hours</h1>
-                <p className='space'></p>
                 <p>Mon - Sun : 8:00 am - 2:00 am</p>
             </div>
         </div>

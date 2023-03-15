@@ -128,12 +128,14 @@ function Register() {
                         />
                     </label>
                     <button className="submit-btn">Register</button>
+                    <div className="other-links">
                     <Link to="/login">
                         Already have an account? <p>Login now !</p>
                     </Link>
                     <Link to="/admin/register">
                         Register as Admin<p>Here!</p>
                     </Link>
+                    </div>
                 </form>
                 <ToastContainer />
             </div>

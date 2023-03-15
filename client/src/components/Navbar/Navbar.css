@@ -32,31 +32,59 @@
 .navbar-link {
     display: flex;
     gap: 0.5em;
+    align-items: center;
+}
+
+.navbar-link > p {
+    font-size: 20px;
 }
 
 .navbar-link > a,
 .navbar-products > a {
     text-decoration: none;
-    position: relative;
-    transition: 150ms all;
+    padding: 0.3em 0.8em;
+    background: var(--btn-color);
+    color: rgb(231, 231, 231);
+    cursor: pointer;
     font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid var(--btn-color);
+    transition: 150ms all;
+}
+
+
+.navbar-link > a:hover,
+.navbar-products > a:hover {
+    color: var(--btn-color);
+    background: rgb(231, 231, 231);
 }
 
 .navbar-cart {
     cursor: pointer;
-    position: relative;
     margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
 
+.navbar-cart span {
+    position: absolute;
+    top: -11px;
+    left: 10px;
+}
+
+.navbar-cart svg {
+    font-size: 25px;
+    pointer-events: none;
+}
 .navbar-cart:hover svg {
-    fill: var(--btn-color);
+    fill: var(--btn-color); 
 }
 
 .navbar-cart .cart-number {
     cursor: default;
-    position: absolute;
-    top: -15px;
-    right: 2px;
     font-size: 16px;
 }
 
@@ -65,7 +93,7 @@ a:hover {
 }
 
 .logout {
-    padding: 0.5em 1em;
+    padding: 0.3em 0.8em;
     background: var(--btn-color);
     color: rgb(231, 231, 231);
     cursor: pointer;

@@ -26,7 +26,7 @@ function Navbar() {
           <div className="navbar-links">
             <div className="navbar-link">
               <Link to="/register">Register</Link>
-              <p>/</p>
+              <p>-</p>
               <Link to="/login">Login</Link>
             </div>
           </div>
@@ -42,12 +42,12 @@ function Navbar() {
           <img src={Logo} alt="logo" />
         </Link>
         <div className="navbar-links">
+          <div className="navbar-cart">
+            <span className="cart-number">0</span>
+            <AiOutlineShoppingCart />
+          </div>
           <div className="navbar-products">
             <Link to="/products">Products</Link>
-          </div>
-          <div className="navbar-cart">
-            <AiOutlineShoppingCart />
-            <span className="cart-number">0</span>
           </div>
           <div className="logout" onClick={handleLogout}>
             Logout
