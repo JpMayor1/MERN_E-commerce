@@ -49,7 +49,7 @@ function Navbar() {
             <AiOutlineShoppingCart />
             <span className="cart-number">0</span>
           </div>
-          <div className="navbar-link" onClick={handleLogout}>
+          <div className="logout" onClick={handleLogout}>
             Logout
           </div>
         </div>

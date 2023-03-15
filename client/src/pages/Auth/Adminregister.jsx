@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Auth.css";
 import { useDispatch } from "react-redux";
 import { register } from "../../redux/authSlice";
@@ -68,11 +68,11 @@ function Adminregister() {
                     progress: undefined,
                     theme: "colored",
                 });
-                return
+                return;
             }
             const data = await res.json();
             dispatch(register(data));
-            
+
             toast.success("Account Successfully Registered", {
                 position: "top-center",
                 autoClose: 2000,
@@ -84,10 +84,10 @@ function Adminregister() {
                 theme: "colored",
                 onClose: () => {
                     window.location.href = "/admin/login";
-                }
+                },
             });
         } catch (error) {
-            toast.error("Invalid inputs", {
+            toast.error("Something went Wrong!", {
                 position: "top-center",
                 autoClose: 2000,
                 hideProgressBar: false,
@@ -98,7 +98,7 @@ function Adminregister() {
                 theme: "colored",
             });
             console.error(error);
-            return
+            return;
         }
     };
 

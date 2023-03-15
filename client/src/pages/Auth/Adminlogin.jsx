@@ -25,15 +25,25 @@ function Adminlogin() {
             });
             const data = await res.json();
             if (!res.ok) {
-                throw new Error(data.message);
+                toast.error("Invalid email or password", {
+                    position: "top-center",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                });
+                return;
             }
             const token = data.token;
-        const decoded = jwt_decode(token);
-        const role = decoded.role;
-        dispatch(login({token, role}));
+            const decoded = jwt_decode(token);
+            const role = decoded.role;
+            dispatch(login({ token, role }));
             navigate("/admin");
         } catch (error) {
-            toast.error("Invalid inputs", {
+            toast.error("Something went Wrong!", {
                 position: "top-center",
                 autoClose: 2000,
                 hideProgressBar: false,
@@ -43,6 +53,8 @@ function Adminlogin() {
                 progress: undefined,
                 theme: "colored",
             });
+            console.error(error);
+            return;
         }
     };
 

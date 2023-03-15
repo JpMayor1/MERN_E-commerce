@@ -1,24 +1,32 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Auth.css";
 import { useDispatch } from "react-redux";
 import { register } from "../../redux/authSlice";
+import { ToastContainer, toast } from "react-toastify";
 
 function Register() {
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPass, setConfirmPass] = useState("");
-    const [error, setError] = useState(false);
-    const navigate = useNavigate();
     const dispatch = useDispatch();
-    
 
     const handleRegister = async (e) => {
         e.preventDefault();
         try {
             if (confirmPass !== password) {
-                throw new Error("Passwords do not match");
+                toast.error("Password do not match", {
+                    position: "top-center",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                });
+                return;
             }
             const res = await fetch("http://localhost:5000/auth/register", {
                 headers: {
@@ -28,23 +36,54 @@ function Register() {
                 body: JSON.stringify({ username, email, password }),
             });
             if (res.status === 404 || res.status === 500) {
-                throw new Error("Invalid inputs! try again.");
+                toast.error("Invalid inputs, Try again", {
+                    position: "top-center",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                });
+                return;
             }
             const data = await res.json();
             dispatch(register(data));
-            navigate("/login");
+            toast.success("Account Successfully Registered", {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                onClose: () => {
+                    window.location.href = "/login";
+                },
+            });
         } catch (error) {
-            setError(error.message);
-            setTimeout(() => {
-                setError(false);
-            }, 2500);
+            toast.error("Something went Wrong!", {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            });
             console.error(error);
+            return;
         }
     };
 
     return (
         <div className="login-container">
-            <Link to="/" className="back-to-home">🡠 HOME</Link>
+            <Link to="/" className="back-to-home">
+                🡠 HOME
+            </Link>
             <div className="wrapper">
                 <h2 className="title">Register as User</h2>
                 <form onSubmit={handleRegister}>
@@ -96,11 +135,7 @@ function Register() {
                         Register as Admin<p>Here!</p>
                     </Link>
                 </form>
-                {error && (
-                    <div className="error-msg">
-                        <p>Invalid inputs! try again.</p>
-                    </div>
-                )}
+                <ToastContainer />
             </div>
         </div>
     );

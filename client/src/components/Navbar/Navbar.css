@@ -25,6 +25,7 @@
 
 .navbar-links {
     display: flex;
+    align-items: center;
     gap: 1em;
 }
 
@@ -61,4 +62,20 @@
 
 a:hover {
     color: var(--btn-color);
+}
+
+.logout {
+    padding: 0.5em 1em;
+    background: var(--btn-color);
+    color: rgb(231, 231, 231);
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid var(--btn-color);
+    transition: 150ms all;
+}
+
+.logout:hover {
+    color: var(--btn-color);
+    background: rgb(231, 231, 231);
 }

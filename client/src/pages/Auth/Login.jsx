@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { login } from "../../redux/authSlice";
+import { ToastContainer, toast } from "react-toastify";
 import "./Auth.css";
 import jwt_decode from "jwt-decode";
 
 function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [error, setError] = useState(false);
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
@@ -24,22 +24,49 @@ function Login() {
             });
             const data = await res.json();
             if (!res.ok) {
-                throw new Error(data.message);
+                toast.error("Invalid email or password", {
+                    position: "top-center",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                });
+                return;
             }
             const token = data.token;
             const decoded = jwt_decode(token);
             if (!decoded.role) {
-                throw new Error("Token does not contain a valid role property");
+                toast.error("Token does not contain a valid role property", {
+                    position: "top-center",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                });
+                return;
             }
             const role = decoded.role;
             dispatch(login({ token, role }));
             navigate("/products");
         } catch (error) {
-            setError(true);
-            setTimeout(() => {
-                setError(false);
-            }, 2500);
+            toast.error("Something went Wrong!", {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            });
             console.error(error);
+            return;
         }
     };
 
@@ -76,11 +103,7 @@ function Login() {
                         Login as Admin<p>Here!</p>
                     </Link>
                 </form>
-                {error && (
-                    <div className="error-msg">
-                        <p>Invalid inputs! try again.</p>
-                    </div>
-                )}
+                <ToastContainer />
             </div>
         </div>
     );
