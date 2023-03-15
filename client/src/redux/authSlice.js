@@ -4,6 +4,7 @@ const initialState = {
     admin: null,
     user: null,
     token: null,
+    role: null, // Add role property
 };
 
 export const authSlice = createSlice({
@@ -14,22 +15,25 @@ export const authSlice = createSlice({
             localStorage.clear();
             state.user = action.payload.others;
             state.admin = action.payload.others;
+            state.role = action.payload.role; // Set the role in state
             state.token = action.payload.token;
-            localStorage.setItem('token', action.payload.token); // set the token in localStorage
+            localStorage.setItem("token", action.payload.token);
         },
         register(state, action) {
             localStorage.clear();
             state.user = action.payload.others;
             state.admin = action.payload.others;
+            state.role = action.payload.role; // Set the role in state
             state.token = action.payload.token;
-            localStorage.setItem('token', action.payload.token); // set the token in localStorage
+            localStorage.setItem("token", action.payload.token);
         },
         logout(state, action) {
             state.user = null;
             state.admin = null;
+            state.role = null;
             state.token = null;
             localStorage.clear();
-            localStorage.removeItem('token'); // remove the token from localStorage
+            localStorage.removeItem("token");
         },
     },
 });

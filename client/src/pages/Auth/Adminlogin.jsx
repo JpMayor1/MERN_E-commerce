@@ -5,6 +5,7 @@ import { login } from "../../redux/authSlice";
 import "./Auth.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import jwt_decode from "jwt-decode";
 
 function Adminlogin() {
     const [email, setEmail] = useState("");
@@ -26,7 +27,10 @@ function Adminlogin() {
             if (!res.ok) {
                 throw new Error(data.message);
             }
-            dispatch(login(data));
+            const token = data.token;
+        const decoded = jwt_decode(token);
+        const role = decoded.role;
+        dispatch(login({token, role}));
             navigate("/admin");
         } catch (error) {
             toast.error("Invalid inputs", {

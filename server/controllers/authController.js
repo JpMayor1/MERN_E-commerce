@@ -9,6 +9,7 @@ const createAdminToken = (admin) => {
     const payload = {
         id: admin._id.toString(),
         email: admin.email,
+        role: 'admin'
     };
 
     const token = jwt.sign(payload, process.env.JWT_SECRET, {
@@ -22,6 +23,7 @@ const createToken = (user) => {
     const payload = {
         id: user._id.toString(),
         email: user.email,
+        role: 'user'
     };
 
     const token = jwt.sign(payload, process.env.JWT_SECRET, {

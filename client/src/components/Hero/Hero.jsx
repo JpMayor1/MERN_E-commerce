@@ -21,7 +21,7 @@ const Hero = () => {
                         us take care of the cooking. We look forward to serving
                         you!
                     </i>
-                    <Link to="/Book" className="btn">
+                    <Link to="/products" className="btn">
                         Explore Menu
                     </Link>
                 </div>

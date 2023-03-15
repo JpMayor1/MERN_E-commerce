@@ -1,24 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Admin.css";
 import Logo from "../../assets/logo.jpg";
 import Create from "../../components/create/Create";
 import Users from "../../components/Users/Users";
 import Orders from "../../components/Orders/Orders";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../redux/authSlice";
 
 function Admin() {
     const [create, setCreate] = useState(true);
     const [users, setUsers] = useState(false);
     const [orders, setOrders] = useState(false);
-    const [token, setToken] = useState(null);
     const dispatch = useDispatch();
     const navigate = useNavigate();
-
-    useEffect(() => {
-        setToken(localStorage.getItem("token"));
-    }, []);
+    const role = useSelector((state) => state.auth.role);
 
     const handleCreateModal = () => {
         setCreate(true);
@@ -43,13 +39,13 @@ function Admin() {
         navigate("/");
     };
 
-    if (!token) {
+    if (role !== "admin") {
         return (
             <div
                 className="not-authorized"
                 style={{ height: "100vh", width: "100vw" }}
             >
-                <h1>Not Authorized, Please Login</h1>
+                <h1>Not Authorized, Please Login as Admin</h1>
             </div>
         );
     }

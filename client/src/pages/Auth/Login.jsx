@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { login } from "../../redux/authSlice";
 import "./Auth.css";
+import jwt_decode from "jwt-decode";
 
 function Login() {
     const [email, setEmail] = useState("");
@@ -25,7 +26,13 @@ function Login() {
             if (!res.ok) {
                 throw new Error(data.message);
             }
-            dispatch(login(data));
+            const token = data.token;
+            const decoded = jwt_decode(token);
+            if (!decoded.role) {
+                throw new Error("Token does not contain a valid role property");
+            }
+            const role = decoded.role;
+            dispatch(login({ token, role }));
             navigate("/products");
         } catch (error) {
             setError(true);
@@ -38,7 +45,9 @@ function Login() {
 
     return (
         <div className="login-container">
-            <Link to="/" className="back-to-home">🡠 HOME</Link>
+            <Link to="/" className="back-to-home">
+                🡠 HOME
+            </Link>
             <div className="wrapper">
                 <h2 className="title">Login as User</h2>
                 <form onSubmit={handleLogin}>
