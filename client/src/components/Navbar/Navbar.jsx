@@ -5,16 +5,24 @@ import Logo from "../../assets/logo.jpg";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../../redux/authSlice";
+import { toggleShowCart } from "../../redux/cartSlice";
+import Cart from "../cart/Cart";
 
 function Navbar() {
   const token = useSelector((state) => state.auth.token);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const {showCart, products} = useSelector((state) => state.cart)
+  // const {user} = useSelector((state) => state.auth)
 
   const handleLogout = () => {
     dispatch(logout());
     navigate("/");
   };
+
+  const handleToggleCart = () => {
+    dispatch(toggleShowCart())
+  }
 
   if (!token) {
     return (
@@ -42,8 +50,8 @@ function Navbar() {
           <img src={Logo} alt="logo" />
         </Link>
         <div className="navbar-links">
-          <div className="navbar-cart">
-            <span className="cart-number">0</span>
+          <div className="navbar-cart" onClick={handleToggleCart}>
+            <span className="cart-number">{products?.length || 0}</span>
             <AiOutlineShoppingCart />
           </div>
           <div className="navbar-products">
@@ -53,6 +61,7 @@ function Navbar() {
             Logout
           </div>
         </div>
+        {showCart && <Cart/>}
       </div>
     </div>
   );
