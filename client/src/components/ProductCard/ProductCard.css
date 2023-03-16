@@ -46,3 +46,20 @@
 .product-price span {
     margin-right: 5px;
 }
+
+.delete-btn {
+    margin-top: .5em;
+    border: 1px solid aliceblue;
+    padding: 0.8em 1em;
+    background: var(--btn-color);
+    border-radius: 10px;
+    color: aliceblue;
+    cursor: pointer;
+    transition: 150ms all;
+}
+
+.delete-btn:hover {
+    background: aliceblue;
+    color: var(--btn-color);
+    border: 1px solid var(--btn-color);
+}
