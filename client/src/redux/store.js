@@ -10,6 +10,7 @@ import {
     REGISTER,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+import addressSlice from "./addressSlice";
 import authSlice from "./authSlice";
 import cartSlice from "./cartSlice";
 
@@ -22,6 +23,7 @@ const persistConfig = {
 const reducers = combineReducers({
   cart: cartSlice,
   auth: authSlice,
+  address: addressSlice
 })
 
 const persistedReducer = persistReducer(persistConfig, reducers);

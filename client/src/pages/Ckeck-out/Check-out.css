@@ -1,0 +1,119 @@
+.check-out-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.check-out-wrapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+
+.check-out-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.check-out-left-title {
+    margin-bottom: 30px;
+}
+
+.check-out-address-data {
+    margin-left: 8px;
+}
+
+.check-out-info {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin: 3rem 0;
+    font-size: 18px;
+}
+
+.check-out-info > h3 {
+    text-transform: capitalize;
+}
+
+.check-out-right {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 375px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.check-out-right-title {
+    margin-bottom: 30px;
+}
+
+.check-out-products {
+    display: flex;
+    gap: 10px;
+    margin: 0.5rem 0;
+    width: 250px;
+    position: relative;
+}
+
+.check-out-price-and-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.check-out-product-title {
+    text-transform: capitalize;
+    font-size: 18px;
+    color: #777;
+    margin-bottom: 5px;
+}
+
+.check-out-price > span {
+    font-size: 15px;
+}
+
+.check-out-image {
+    height: 80px;
+    object-fit: cover;
+}
+
+.check-out-total-price-msg {
+    display: flex;
+    align-items: center;
+    margin-top: 12px;
+    gap: 6px;
+    font-size: 20px;
+}
+
+.check-out-total-price {
+    color: #444;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.check-out-order-btn {
+    text-decoration: none;
+    text-align: center;
+    margin-top: 30px;
+    outline: none;
+    font-size: 18px;
+    border: 1px solid transparent;
+    background: var(--btn-color);
+    color: aliceblue;
+    padding: 0.75rem 2rem;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.check-out-order-btn:hover {
+    background-color: aliceblue;
+    color: var(--btn-color);
+    border-color:var(--btn-color);
+}

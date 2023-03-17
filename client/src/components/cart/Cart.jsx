@@ -56,7 +56,7 @@ function Cart() {
             <span>₱</span> {Number(total).toFixed(2)}
           </span>
         </div>
-        <Link to="/checkout" onClick={handleCloseCart} className="checkOutBtn">Proceed to Check-out</Link>
+        <Link to="/address" onClick={handleCloseCart} className="checkOutBtn">Proceed to Check-out</Link>
         </>
         }
         {total > 0 && (
