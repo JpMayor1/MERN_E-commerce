@@ -12,7 +12,7 @@ import Adminlogin from './pages/Auth/Adminlogin';
 import ProductDetail from './components/ProductDetail/ProductDetail';
 import CheckOut from './pages/Ckeck-out/CheckOut';
 import AddressPage from './pages/Addresspage/AddressPage';
-import Final from './pages/Final/Final';
+import SuccessOrder from './pages/successOrder/SuccessOrder';
 
 function App() {
   return (
@@ -26,7 +26,7 @@ function App() {
         <Route path='/products' element={<Products />} />
         <Route path='/checkout' element={<CheckOut />} />
         <Route path='/address' element={<AddressPage />} />
-        <Route path='/final' element={<Final />} />
+        <Route path='/successorder' element={<SuccessOrder />} />
         <Route path='/admin/register' element={<Adminregister />} />
         <Route path='/admin/login' element={<Adminlogin />} />
         <Route path='/productDetail/:id' element={<ProductDetail />} />

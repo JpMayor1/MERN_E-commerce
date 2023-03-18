@@ -1,0 +1,78 @@
+.success-order-container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--primary-color);
+    overflow-y: auto;
+}
+
+.success-order-wrapper {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    max-width: 600px;
+    width: 100%;
+  }
+  
+  .success-order-title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .success-order-info {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .success-order-address-data,
+  .success-order-products-info {
+    margin-bottom: 20px;
+  }
+  
+  .check-out-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .check-out-info h3 {
+    font-weight: bold;
+  }
+  
+  .success-order-price-and-title {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .success-order-product-title {
+    font-weight: bold;
+  }
+  
+  .success-order-price {
+    font-weight: bold;
+  }
+  
+  .success-order-price-msg {
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .success-order-total-price {
+    font-weight: bold;
+  }
+  
+  .chosen-payment-method {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+  }

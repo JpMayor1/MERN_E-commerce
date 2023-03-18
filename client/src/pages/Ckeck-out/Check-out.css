@@ -22,7 +22,7 @@
 }
 
 .check-out-left-title {
-    margin-bottom: 30px;
+    font-size: 22px;
 }
 
 .check-out-address-data {
@@ -39,11 +39,14 @@
 
 .check-out-info > h3 {
     text-transform: capitalize;
+    margin: 0;
+    font-size: 18px;
 }
 
 .check-out-right {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 10px;
     height: 375px;
     overflow-y: auto;
@@ -51,7 +54,7 @@
 }
 
 .check-out-right-title {
-    margin-bottom: 30px;
+    font-size: 22px;
 }
 
 .check-out-products {
@@ -66,11 +69,12 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
 }
 
 .check-out-product-title {
     text-transform: capitalize;
-    font-size: 18px;
+    font-size: 15px;
     color: #777;
     margin-bottom: 5px;
 }
@@ -89,7 +93,7 @@
     align-items: center;
     margin-top: 12px;
     gap: 6px;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .check-out-total-price {
@@ -101,13 +105,12 @@
 .check-out-order-btn {
     text-decoration: none;
     text-align: center;
-    margin-top: 30px;
     outline: none;
     font-size: 18px;
     border: 1px solid transparent;
     background: var(--btn-color);
     color: aliceblue;
-    padding: 0.75rem 2rem;
+    padding: 0.7rem 2rem;
     border-radius: 20px;
     cursor: pointer;
 }
@@ -115,5 +118,46 @@
 .check-out-order-btn:hover {
     background-color: aliceblue;
     color: var(--btn-color);
-    border-color:var(--btn-color);
+    border-color: var(--btn-color);
+}
+
+.payment-methods {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.cod-method {
+    display: flex;
+    gap: 5px;
+}
+
+.cod-method > input {
+    cursor: pointer;
+}
+
+.paypal-method {
+    display: flex;
+    gap: 5px;
+}
+
+.paypal-icon {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.g-cash-method {
+    display: flex;
+    gap: 5px;
+    height: 30px;
+    width: 30px;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.g-cash-method img {
+    height: 100%;
+    width: auto;
 }
