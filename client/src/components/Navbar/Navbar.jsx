@@ -33,8 +33,6 @@ function Navbar() {
           </Link>
           <div className="navbar-links">
             <div className="navbar-link">
-              <Link to="/register">Register</Link>
-              <p>-</p>
               <Link to="/login">Login</Link>
             </div>
           </div>

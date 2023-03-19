@@ -5,6 +5,8 @@ import { useSelector } from "react-redux";
 function SuccessOrder() {
     const { address } = useSelector((state) => state.address);
     const { products } = useSelector((state) => state.cart);
+    const { payment } = useSelector((state) => state.payment);
+    console.log(payment);
 
     function totalPriceProducts() {
         let totalPrice = 0;
@@ -47,14 +49,12 @@ function SuccessOrder() {
                             </div>
                         ))}
                     </div>
+                    <div className="chosen-payment-method">{payment}</div>
                     <div className="success-order-price-msg">
                         Total:
                         <div className="success-order-total-price">
                             ₱{totalPriceProducts()}
                         </div>
-                    </div>
-                    <div className="chosen-payment-method">
-                        {/* show the chosen payment method here */}
                     </div>
                 </form>
             </div>

@@ -1,13 +1,17 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { BsPaypal } from "react-icons/bs";
+import { ToastContainer, toast } from "react-toastify";
+import { submitPayment } from "../../redux/paymentSlice";
+import axios from "axios";
 import "./Check-out.css";
 import Gcash from "../../assets/G-cash.png";
 
 function CheckOut() {
     const { address } = useSelector((state) => state.address);
     const { products } = useSelector((state) => state.cart);
+    const dispatch = useDispatch();
     const [selectedPaymentMethod, setSelectedPaymentMethod] = useState("");
 
     function totalPriceProducts() {
@@ -20,6 +24,55 @@ function CheckOut() {
 
     function handlePaymentMethodChange(event) {
         setSelectedPaymentMethod(event.target.value);
+        dispatch(submitPayment(event.target.value)); // use the specific action creator
+    }
+
+    function handleOrder() {
+        // Define the order data to be saved to the database
+        const orderData = {
+            barangay: address.barangay,
+            purok: address.purok,
+            email: address.email,
+            number: address.number,
+            orders: products.map((product) => product.title),
+            payment: selectedPaymentMethod,
+            total: totalPriceProducts(),
+        };
+
+        // Make a POST request to the server to create a new order document
+        axios
+            .post("http://localhost:5000/orders", orderData)
+            .then((response) => {
+                console.log("Order created:", response.data);
+                // Redirect to the success page or show a success message
+                toast.success("Order Successfully Created", {
+                    position: "top-center",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                    onClose: () => {
+                        window.location.href = "/successorder";
+                    },
+                });
+            })
+            .catch((error) => {
+                // Show an error message
+                toast.error("Something went Wrong!", {
+                    position: "top-center",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                });
+                console.error("Error creating order:", error);
+            });
     }
 
     return (
@@ -108,11 +161,15 @@ function CheckOut() {
                             </div>
                         </div>
                     </div>
-                    <Link to="/successorder" className="check-out-order-btn">
+                    <button
+                        className="check-out-order-btn"
+                        onClick={handleOrder}
+                    >
                         Order
-                    </Link>
+                    </button>
                 </div>
             </div>
+            <ToastContainer />
         </div>
     );
 }
