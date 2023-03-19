@@ -10,69 +10,75 @@
 
 .success-order-wrapper {
     background-color: #fff;
-    padding: 20px;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    padding: 30px;
     border-radius: 5px;
-    max-width: 600px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
     width: 100%;
-  }
-  
-  .success-order-title {
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
+}
+
+.success-order-title {
+    font-size: 23px;
+    margin-bottom: 5px;
+}
+
+form {
+    gap: 5px;
     margin-bottom: 20px;
-  }
-  
-  .success-order-info {
+}
+
+.success-order-info {
     font-size: 20px;
-    font-weight: bold;
+    margin: 0;
+}
+
+.success-order-address-data {
+    display: flex;
+    flex-wrap: wrap;
     margin-bottom: 10px;
-  }
-  
-  .success-order-address-data,
-  .success-order-products-info {
-    margin-bottom: 20px;
-  }
-  
-  .check-out-info {
+}
+
+.check-out-info {
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    margin-right: 30px;
+    margin: 10px;
+}
+
+.check-out-info h3 {
+    margin-right: 10px;
+    font-size: 20px;
+    color: var( --text-color);
+}
+
+.success-order-products-info {
+    margin-bottom: 20px;
+}
+
+.product_id {
     margin-bottom: 10px;
-  }
-  
-  .check-out-info h3 {
-    font-weight: bold;
-  }
-  
-  .success-order-price-and-title {
+}
+
+.success-order-price-and-title {
     display: flex;
+    align-items: center;
     justify-content: space-between;
-  }
-  
-  .success-order-product-title {
-    font-weight: bold;
-  }
-  
-  .success-order-price {
-    font-weight: bold;
-  }
-  
-  .success-order-price-msg {
-    display: flex;
-    justify-content: space-between;
-    font-size: 20px;
-    font-weight: bold;
+    width: 50%;
+}
+
+.success-order-product-title {
+    font-size: 18px;
+}
+
+.success-order-price {
+    font-size: 16px;
+}
+
+.chosen-payment-method {
     margin-bottom: 20px;
-  }
-  
-  .success-order-total-price {
-    font-weight: bold;
-  }
-  
-  .chosen-payment-method {
     font-size: 20px;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 20px;
-  }
+}
+
+.success-order-price-msg {
+    font-size: 20px;
+}

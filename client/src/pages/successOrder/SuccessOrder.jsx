@@ -29,7 +29,7 @@ function SuccessOrder() {
                             ([property, value], index) => (
                                 <div key={index} className="check-out-info">
                                     <h3>{property}:</h3>
-                                    <span>{value}</span>
+                                    <i>{value}</i>
                                 </div>
                             )
                         )}
@@ -51,10 +51,7 @@ function SuccessOrder() {
                     </div>
                     <div className="chosen-payment-method">{payment}</div>
                     <div className="success-order-price-msg">
-                        Total:
-                        <div className="success-order-total-price">
-                            ₱{totalPriceProducts()}
-                        </div>
+                        Total: ₱{totalPriceProducts()}
                     </div>
                 </form>
             </div>
