@@ -7,6 +7,7 @@ const productController = require("./controllers/productController");
 const uploadController = require("./controllers/uploadController");
 const WebSocket = require("ws");
 const ordersController = require("./controllers/ordersController");
+const getUserController = require("./controllers/getUserController");
 
 const app = express();
 
@@ -33,6 +34,7 @@ app.use("/auth", authController);
 app.use("/product", productController);
 app.use("/upload", uploadController);
 app.use("/orders", ordersController);
+app.use("/users", getUserController)
 
 // CREATE A WEBSOCKET SERVER
 const wss = new WebSocket.Server({ port: process.env.WS_PORT });
