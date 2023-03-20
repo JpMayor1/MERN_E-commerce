@@ -160,12 +160,12 @@ function Adminregister() {
                     </label>
                     <button className="submit-btn">Register</button>
                     <div className="other-links">
-                    <Link to="/admin/login">
-                        Already have an account? <p>Login now !</p>
-                    </Link>
-                    <Link to="/register">
-                        Register as User<p>Here!</p>
-                    </Link>
+                        <Link to="/admin/login">
+                            Already have an account? <p>Login now !</p>
+                        </Link>
+                        <Link to="/register">
+                            Register as User<p>Here!</p>
+                        </Link>
                     </div>
                 </form>
                 <ToastContainer />
