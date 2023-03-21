@@ -73,7 +73,7 @@
 .login-container .wrapper .submit-btn {
     outline: none;
     border: 1px solid transparent;
-    padding: 0.70rem 1.5rem;
+    padding: 0.40rem 1.5rem;
     border-radius: 20px;
     background-color: var(--btn-color);
     color: var(--primary-color);

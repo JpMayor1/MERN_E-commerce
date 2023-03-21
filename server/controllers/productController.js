@@ -54,7 +54,7 @@ productController.delete("/:id", async (req, res) => {
         }
 
         // Delete image file from public/images
-        const imagePath = `public/images/${product.image}`;
+        const imagePath = `public/images/${Product.img}`;
         if (fs.existsSync(imagePath)) {
             fs.unlinkSync(imagePath);
         }
