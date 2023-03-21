@@ -12,7 +12,7 @@
     );
 }
 
-.footer .container {
+.footer-container {
     width: 1000px;
     height: 100%;
     display: flex;
@@ -41,12 +41,11 @@
     gap: 1rem;
 }
 
-h1 {
-    color: var(--text-title-color);
-    font-size: 25px;
+.footer-title {
+    color: var(--text-color);
+    font-size: 20px;
     font-weight: 600;
     cursor: default;
-    margin-bottom: 1rem;
 }
 
 p {
@@ -71,12 +70,9 @@ p {
 }
 /***************************************** COPY RIGHT */
 .content-down {
-    height: 50%;
+    height: 30%;
     width: 100%;
     text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .content-down p {
@@ -93,10 +89,10 @@ p {
 
 /**************************************** MEDIA QUERIES */
 @media screen and (min-width: 2000px) {
-    .footer .container {
+    .footer-container {
         width: 1000px;
     }
-    h1 {
+    .footer-title {
         font-size: 40px;
     }
     p {
@@ -112,11 +108,11 @@ p {
 }
 
 @media screen and (max-width: 1330px) {
-    .footer .container {
+    .footer-container {
         width: 900px;
     }
-    h1 {
-        font-size: 25px;
+    .footer-title {
+        font-size: 20px;
     }
     p {
         font-size: 14px;
@@ -131,23 +127,23 @@ p {
 }
 
 @media screen and (max-width: 1100px) {
-    .footer .container {
+    .footer-container {
         width: 800px;
     }
 }
 
 @media screen and (max-width: 913px) {
-    .footer .container {
+    .footer-container {
         width: 600px;
     }
 }
 
 @media screen and (max-width: 768px) {
     .footer {
-        height: 100vh;
+        height: fit-content;
     }
 
-    .footer .container {
+    .footer-container {
         width: 500px;
     }
 
@@ -174,28 +170,29 @@ p {
     .links-icons {
         width: 100%;
     }
+
+    .content-down {
+        margin-bottom: 3rem;
+    }
 }
 
 @media screen and (max-width: 540px) {
-    .footer .container {
+    .footer-container {
         width: 400px;
     }
 }
 
 @media screen and (max-width: 420px) {
-    .footer .container {
+    .footer-container {
         width: 320px;
     }
 }
 
 @media screen and (max-width: 375px) {
-    .footer .container {
+    .footer-container {
         width: 270px;
     }
 
-    h1 {
-        font-size: 20px;
-    }
     p {
         font-size: 12px;
     }
@@ -209,7 +206,7 @@ p {
 }
 
 @media screen and (max-width: 280px) {
-    .footer .container {
+    .footer-container {
         width: 260px;
     }
 }
