@@ -19,6 +19,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 10px;
+    height: 375px;
 }
 
 .check-out-left-title {
@@ -49,8 +51,7 @@
     align-items: center;
     gap: 10px;
     height: 375px;
-    overflow-y: auto;
-    overflow-x: hidden;
+    width: fit-content;
 }
 
 .check-out-right-title {
@@ -160,4 +161,21 @@
 .g-cash-method img {
     height: 100%;
     width: auto;
+}
+
+@media screen and (max-width: 768px) {
+    .check-out-container {
+        height: fit-content;
+    }
+
+    .check-out-wrapper {
+        height: fit-content;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .check-out-left {
+        height: fit fit-content;
+        padding-top: 2rem;
+    }
 }

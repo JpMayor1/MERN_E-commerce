@@ -40,7 +40,7 @@ function AddressPage() {
     return (
         <div className="address-container">
             <div className="address-wrapper">
-                <h2 className="address-titel">Address and Detail</h2>
+                <h2 className="address-titel">Information's</h2>
                 <form onSubmit={handleSubmit}>
                     <p className="jpang">Jose Panganiban, Camarines Norte Only</p>
                     <input

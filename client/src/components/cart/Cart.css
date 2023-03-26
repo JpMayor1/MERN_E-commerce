@@ -64,7 +64,7 @@
 
 .trash-icon {
     position: absolute;
-    top: 0;
+    top: 20px;
     right: -50px;
     font-size: 20px;
     min-width: 20px;
@@ -149,4 +149,11 @@
 
 .totalPrice > span {
     font-size: 16px;
+}
+
+
+@media screen and (max-width: 768px) {
+    .show-cart-container {
+        right: 1rem;
+    }
 }
