@@ -121,3 +121,10 @@
     margin-right: 10px;
     fill: var(--text-title-color);
 }
+
+@media screen and (max-width: 768px) {
+    .product-detail-wrapper {
+        flex-direction: column;
+        gap: 3rem;
+    }
+}

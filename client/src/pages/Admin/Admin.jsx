@@ -67,18 +67,18 @@ function Admin() {
                             <p>Products</p>
                         </div>
                         <div
-                            className="users"
-                            onClick={handleShowUsers}
-                            tabIndex="0"
-                        >
-                            <p>Users</p>
-                        </div>
-                        <div
                             className="orders"
                             onClick={handleShowOrders}
                             tabIndex="0"
                         >
                             <p>Orders</p>
+                        </div>
+                        <div
+                            className="users"
+                            onClick={handleShowUsers}
+                            tabIndex="0"
+                        >
+                            <p>Users</p>
                         </div>
                     </div>
                     <div className="admin-logout">

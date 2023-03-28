@@ -152,7 +152,6 @@ p {
     }
 
     .content-up {
-        flex-direction: column;
         align-items: center;
     }
 
@@ -163,8 +162,14 @@ p {
         margin-bottom: 1.5rem;
     }
 
-    .link p {
-        display: none;
+    .contact p,
+    .links-icons,
+    .work-hours p {
+        font-size: 11px;
+    }
+
+    .footer-title {
+        font-size: 18px;
     }
 
     .links-icons {

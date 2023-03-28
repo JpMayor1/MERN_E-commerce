@@ -48,3 +48,18 @@ table {
     background-color: #c82333;
   }
   
+  @media screen and (max-width: 768px) {
+    th{
+      font-size: 12px;
+    }
+    td {
+      font-size: 11px;
+    }
+    button {
+      font-size: 12px;
+      padding: 4px 8px;
+    }
+    .get-users-container {
+      padding: 1rem;
+    }
+  }

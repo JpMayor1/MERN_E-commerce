@@ -175,7 +175,7 @@
     }
 
     .check-out-left {
-        height: fit fit-content;
-        padding-top: 2rem;
+        height: fit-content;
+        padding: 2rem;
     }
 }

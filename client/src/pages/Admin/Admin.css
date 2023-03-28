@@ -60,7 +60,6 @@ hr {
 .navigation .orders {
     width: 100%;
     padding: 0.5em 0;
-    text-align: start;
     cursor: pointer;
     transition: 150ms all;
 }
@@ -94,7 +93,7 @@ hr {
 .navigation .users p,
 .navigation .orders p {
     font-size: 16px;
-    padding-left: 40px;
+    text-align: center;
     pointer-events: none;
     transition: 150ms all;
 }
@@ -118,5 +117,13 @@ hr {
 .admin-content {
     height: 100%;
     width: 100%;
-    object-fit: contain;
+    object-fit: cover;
+}
+
+@media screen and (max-width: 768px) {
+    .navigation .products p,
+    .navigation .users p,
+    .navigation .orders p {
+        padding-left: 15px;
+    }
 }
