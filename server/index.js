@@ -13,9 +13,7 @@ const app = express();
 
 //DB CONNECTIONS:
 mongoose
-    .connect(process.env.MONGO_URL, {
-        serverSelectionTimeoutMS: 24 * 60 * 60 * 1000, // 1 day in milliseconds
-    })
+    .connect(process.env.MONGO_URL)
     .then(() => {
         console.log("DB is successfully connected");
     })

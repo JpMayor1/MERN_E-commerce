@@ -47,7 +47,7 @@ function ProductDetail() {
         );
         toast.success("Product added", {
             position: "top-center",
-            autoClose: 2000,
+            autoClose: 700,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: false,

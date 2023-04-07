@@ -30,8 +30,7 @@
 }
 
 .content-up .contact,
-.link,
-.work-hours {
+.link {
     height: 100%;
     text-align: center;
     display: flex;
@@ -156,15 +155,13 @@ p {
     }
 
     .content-up .contact,
-    .link,
-    .work-hours {
+    .link {
         align-items: center;
         margin-bottom: 1.5rem;
     }
 
     .contact p,
-    .links-icons,
-    .work-hours p {
+    .links-icons {
         font-size: 11px;
     }
 
@@ -184,6 +181,24 @@ p {
 @media screen and (max-width: 540px) {
     .footer-container {
         width: 400px;
+    }
+    .content-up .contact,
+    .link {
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+    .contact p,
+    .links-icons {
+        font-size: 11px;
+    }
+
+    .footer-title {
+        font-size: 14px;
+    }
+
+    .links-icons {
+        width: 100%;
     }
 }
 

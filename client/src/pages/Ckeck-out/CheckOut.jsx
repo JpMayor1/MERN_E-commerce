@@ -47,7 +47,7 @@ function CheckOut() {
                 // Redirect to the success page or show a success message
                 toast.success("Order Successfully Created", {
                     position: "top-center",
-                    autoClose: 2000,
+                    autoClose: 700,
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: false,

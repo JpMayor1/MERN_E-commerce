@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./SuccessOrder.css";
 import { useSelector } from "react-redux";
 
@@ -53,6 +54,9 @@ function SuccessOrder() {
                     <div className="success-order-price-msg">
                         Total: ₱{totalPriceProducts()}
                     </div>
+                    <Link to="/products" className="btn done">
+                        Done!
+                    </Link>
                 </form>
             </div>
         </div>

@@ -12,7 +12,7 @@ function ProductCard({ product }) {
             console.log(res.data.msg);
             toast.success("Product Deleted", {
                 position: "top-center",
-                autoClose: 2000,
+                autoClose: 700,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: false,

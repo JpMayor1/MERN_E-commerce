@@ -9,7 +9,7 @@
 }
 
 .show-cart-wrapper {
-    max-height: 500px;
+    max-height: 550px;
     padding: 1.5rem 2.5rem;
     width: 375px;
     overflow-y: auto;
@@ -44,12 +44,12 @@
 .show-cart-product-title {
     text-transform: capitalize;
     font-size: 18px;
-    color: var( --text-color);
+    color: var(--text-color);
     margin-bottom: 5px;
 }
 
 .show-cart-price {
-    color: var( --text-color);
+    color: var(--text-color);
 }
 
 .price > span {
@@ -151,9 +151,14 @@
     font-size: 16px;
 }
 
-
 @media screen and (max-width: 768px) {
     .show-cart-container {
         right: 1rem;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .show-cart-container {
+        right: 0;
     }
 }

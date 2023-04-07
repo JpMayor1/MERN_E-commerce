@@ -48,7 +48,7 @@ form {
 .check-out-info h3 {
     margin-right: 10px;
     font-size: 20px;
-    color: var( --text-color);
+    color: var(--text-color);
 }
 
 .success-order-products-info {
@@ -63,7 +63,6 @@ form {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 50%;
 }
 
 .success-order-product-title {
@@ -81,4 +80,10 @@ form {
 
 .success-order-price-msg {
     font-size: 20px;
+}
+
+.done {
+    text-decoration: none;
+    text-align: center;
+    margin-top: 10px;
 }

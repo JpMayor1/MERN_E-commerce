@@ -42,7 +42,7 @@ function Create() {
                 // Display pop-up message and refresh the page
                 toast.success("Product Created", {
                     position: "top-center",
-                    autoClose: 2000,
+                    autoClose: 700,
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: false,
@@ -56,7 +56,7 @@ function Create() {
             } else {
                 toast.error("Product Not Created", {
                     position: "top-center",
-                    autoClose: 3000,
+                    autoClose: 700,
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: false,
@@ -87,7 +87,7 @@ function Create() {
         } catch (error) {
             toast.error("Product Not Created", {
                 position: "top-center",
-                autoClose: 3000,
+                autoClose: 1000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: false,

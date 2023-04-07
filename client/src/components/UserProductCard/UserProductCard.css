@@ -3,6 +3,8 @@
     -webkit-box-shadow: 0px 0px 7px 5px rgba(0, 0, 0, 0.3);
     box-shadow: 0px 0px 7px 5px rgba(0, 0, 0, 0.3);
     transition: 150ms all;
+    height: fit-content;
+    width: 300px;
 }
 
 .product-container-list-card:hover {
@@ -45,4 +47,11 @@
 
 .product-pricee span {
     margin-right: 5px;
+}
+
+@media screen and (max-width: 540px) {
+    .product-container-list-card {
+        height: 100%;
+        width: 100%;
+    }
 }
