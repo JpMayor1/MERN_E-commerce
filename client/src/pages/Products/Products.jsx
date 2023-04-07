@@ -29,7 +29,7 @@ function Products() {
     if (!token) {
         return (
             <div className="not-authorized">
-                <h1>Not Authorized, Please Login</h1>
+                <h2>Not Authorized, Please Login</h2>
             </div>
         );
     } else {
