@@ -1,5 +1,2 @@
-#ignoring env file
-*.env
-
-#ignoring node modules
-/node_modules
+server/.env
+server/node_modules/
