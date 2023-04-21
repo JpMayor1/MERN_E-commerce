@@ -19,7 +19,7 @@ function Adminregister() {
             if (confirmPass !== password) {
                 toast.error("Password do not match", {
                     position: "top-center",
-                    autoClose: 2000,
+                    autoClose: 1000,
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: false,
@@ -29,11 +29,14 @@ function Adminregister() {
                 });
                 return;
             }
-            const secretKey = "DandJ2023";
-            if (adminSecretKey !== secretKey) {
+            const response = await fetch(
+                `http://localhost:5000/admin/validateSecretKey?secretKey=${adminSecretKey}`
+            );
+
+            if (response.status === 401) {
                 toast.error("Invalid Secret Key", {
                     position: "top-center",
-                    autoClose: 2000,
+                    autoClose: 1000,
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: false,
@@ -43,6 +46,7 @@ function Adminregister() {
                 });
                 return;
             }
+
             const res = await fetch(
                 "http://localhost:5000/auth/admin/register",
                 {
@@ -60,7 +64,7 @@ function Adminregister() {
             if (res.status === 404 || res.status === 500) {
                 toast.error("Invalid inputs, Try again", {
                     position: "top-center",
-                    autoClose: 2000,
+                    autoClose: 1000,
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: false,
@@ -75,7 +79,7 @@ function Adminregister() {
 
             toast.success("Account Successfully Registered", {
                 position: "top-center",
-                autoClose: 2000,
+                autoClose: 1000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: false,
@@ -89,7 +93,7 @@ function Adminregister() {
         } catch (error) {
             toast.error("Something went Wrong!", {
                 position: "top-center",
-                autoClose: 2000,
+                autoClose: 1000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: false,
