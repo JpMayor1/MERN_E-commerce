@@ -31,7 +31,7 @@ function Create() {
                 formData.append("filename", filename);
                 formData.append("img", img);
 
-                await fetch(`http://localhost:5000/upload/img`, {
+                await fetch(`https://d-and-j-diner.onrender.com/upload/img`, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
@@ -71,7 +71,7 @@ function Create() {
             }
 
             // upload product
-            await fetch("http://localhost:5000/product", {
+            await fetch("https://d-and-j-diner.onrender.com/product", {
                 headers: {
                     "Content-Type": "application/json",
                     Authorization: `Bearer ${token}`,
@@ -106,7 +106,7 @@ function Create() {
     useEffect(() => {
         const fetchProduct = async () => {
             try {
-                const res = await fetch("http://localhost:5000/product");
+                const res = await fetch("https://d-and-j-diner.onrender.com/product");
                 const data = await res.json();
                 setProducts(data);
             } catch (error) {

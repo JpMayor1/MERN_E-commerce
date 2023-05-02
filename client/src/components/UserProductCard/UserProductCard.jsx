@@ -7,7 +7,7 @@ function UserProductCard({ product }) {
         <div className="product-container-list-card">
             <Link to={`/productDetail/${product._id}`} className="wrapper-link">
                 <img
-                    src={`http://localhost:5000/images/${product.img}`}
+                    src={`https://d-and-j-diner.onrender.com/images/${product.img}`}
                     className="product-imagee"
                     alt="products"
                 />

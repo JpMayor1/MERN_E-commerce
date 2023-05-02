@@ -35,7 +35,7 @@ function Cart() {
             products?.map((product) => (
               <div key={product.id} className="show-cart-item">
                 <Link to={`/productDetail/${product.id}`}>
-                  <img src={`http://localhost:5000/images/${product?.img}`} alt="product" className='show-cart-image' />
+                  <img src={`https://d-and-j-diner.onrender.com/images/${product?.img}`} alt="product" className='show-cart-image' />
                 </Link>
                 <div className="show-cart-price-and-title">
                   <p className="show-cart-product-title">{product.title}</p>

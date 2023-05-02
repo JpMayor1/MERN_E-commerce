@@ -41,7 +41,7 @@ function CheckOut() {
 
         // Make a POST request to the server to create a new order document
         axios
-            .post("http://localhost:5000/orders", orderData)
+            .post("https://d-and-j-diner.onrender.com/orders", orderData)
             .then((response) => {
                 console.log("Order created:", response.data);
                 // Redirect to the success page or show a success message
@@ -98,7 +98,7 @@ function CheckOut() {
                             <div className="product_id" key={product.id}>
                                 <Link to={`/productDetail/${product.id}`}>
                                     <img
-                                        src={`http://localhost:5000/images/${product.img}`}
+                                        src={`https://d-and-j-diner.onrender.com/images/${product.img}`}
                                         alt="imageproduct"
                                         className="check-out-image"
                                     />

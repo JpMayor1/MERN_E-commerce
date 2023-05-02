@@ -16,7 +16,7 @@ function Adminlogin() {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const res = await fetch("http://localhost:5000/auth/admin/login", {
+            const res = await fetch("https://d-and-j-diner.onrender.com/auth/admin/login", {
                 headers: {
                     "Content-Type": "application/json",
                 },

@@ -15,7 +15,7 @@ function Products() {
     useEffect(() => {
         const fetchProduct = async () => {
             try {
-                const res = await fetch("http://localhost:5000/product");
+                const res = await fetch("https://d-and-j-diner.onrender.com/product");
                 const data = await res.json();
                 setProducts(data);
             } catch (error) {

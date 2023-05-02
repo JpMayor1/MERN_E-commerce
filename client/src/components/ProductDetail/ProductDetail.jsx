@@ -18,7 +18,7 @@ function ProductDetail() {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const res = await fetch(`http://localhost:5000/product/${id}`);
+                const res = await fetch(`https://d-and-j-diner.onrender.com/product/${id}`);
                 const data = await res.json();
                 setProduct(data);
                 setCurrentImg(data.img);
@@ -63,7 +63,7 @@ function ProductDetail() {
                 <div className="left">
                     <div className="image-container">
                         <img
-                            src={`http://localhost:5000/images/${currentImg}`}
+                            src={`https://d-and-j-diner.onrender.com/images/${currentImg}`}
                             alt="img"
                             className="main-img"
                         />

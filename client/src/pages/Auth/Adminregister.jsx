@@ -30,7 +30,7 @@ function Adminregister() {
                 return;
             }
             const response = await fetch(
-                `http://localhost:5000/admin/validateSecretKey?secretKey=${adminSecretKey}`
+                `https://d-and-j-diner.onrender.com/admin/validateSecretKey?secretKey=${adminSecretKey}`
             );
 
             if (response.status === 401) {
@@ -48,7 +48,7 @@ function Adminregister() {
             }
 
             const res = await fetch(
-                "http://localhost:5000/auth/admin/register",
+                "https://d-and-j-diner.onrender.com/auth/admin/register",
                 {
                     headers: {
                         "Content-Type": "application/json",

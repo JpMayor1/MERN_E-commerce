@@ -8,7 +8,7 @@ function Users() {
     useEffect(() => {
         async function fetchUsers() {
             try {
-                const response = await axios.get("http://localhost:5000/users");
+                const response = await axios.get("https://d-and-j-diner.onrender.com/users");
                 setUsers(response.data);
             } catch (err) {
                 console.log(err);
@@ -19,7 +19,7 @@ function Users() {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://localhost:5000/users/${id}`);
+            await axios.delete(`https://d-and-j-diner.onrender.com/users/${id}`);
             setUsers(users.filter((user) => user._id !== id));
         } catch (err) {
             console.log(err);
